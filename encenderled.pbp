@@ -1,0 +1,7 @@
+trisa.0=0
+ini:
+   porta.0=1
+   pause 1000
+   porta.0=0
+   pause 1000
+   goto ini
