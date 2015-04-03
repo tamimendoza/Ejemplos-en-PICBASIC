@@ -1,0 +1,48 @@
+trisa=0
+trisb=0
+
+X var byte [9]
+
+X[0]=%0111111
+X[1]=%110 
+X[2]=%1011011 
+X[3]=%1001111
+X[4]=%1100110
+X[5]=%1101101
+X[6]=%1111101
+X[7]=%111
+X[8]=%1111111 
+X[9]=%1100111 
+
+i var byte
+j var byte
+k var byte
+l var byte
+p var byte
+for i=0 to 2
+    for j=0 to 3
+        for k=0 to 5
+            for l=0 to 9
+                p=0
+                while p<=10
+                    porta=%100
+                    portb=X[i]
+                    pause 15
+                    porta=%001
+                    portb=X[j]
+                    pause 15
+                    porta=%110
+                    portb=X[k]
+                    pause 15
+                    porta=%011
+                    portb=X[l]
+                    pause 15
+                    p=p+1
+                wend                
+                'pause 10
+            next l
+        next k
+    next j    
+next i
+
+

@@ -1,0 +1,34 @@
+'contador
+X VAR BYTE [10]
+X[0]=%0111111 '0
+X[1]=%110 '1
+X[2]=%1011011 '2
+X[3]=%1001111 '3
+X[4]=%1100110 '4
+X[5]=%1101101 '5
+X[6]=%1111101 '6
+X[7]=%111 '7
+X[8]=%1111111 '8
+X[9]=%1100111 '9
+
+trisa=0
+trisb=0
+i var byte
+j var byte
+k var byte
+
+for i=0 to 9    
+    for j=0 to 9
+        k=0
+        while k<50
+            porta=%10
+            portb=X[i]
+            pause 10
+            porta=%01
+            portb=X[j]
+            pause 10
+            k=k+1
+        wend
+    next j
+next i
+

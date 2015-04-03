@@ -1,0 +1,70 @@
+define LCD_DREG portb
+define LCD_DBIT 4
+'*******************
+define LCD_RSREG portb
+define LCD_RSBIT 1
+'*******************
+define LCD_EREG portb
+define LCD_EBIT 2
+
+trisb=0
+
+V var byte [16]
+i var byte
+j var byte
+tam var byte
+cont var byte
+
+V[0]="H"
+V[1]="O"
+V[2]="L"
+V[3]="A"
+V[4]=" "
+V[5]=" "
+V[6]=" "
+V[7]=" "
+V[8]=" "
+V[9]=" "
+V[10]=" "
+V[11]=" "
+V[12]=" "
+V[13]=" "
+V[14]=" "
+V[15]=" "
+
+'*****obtener tamaño*************
+tam=0                           '
+for i=0 to 15                   '
+    if V[i]<>" " then           '
+        tam=tam+1               '
+    endif                       '
+next i                          '
+'pause 500                       '
+'lcdout $fe,1,dec tam            '
+'pause 500                       '
+'********************************
+pas var byte
+sobra var byte
+'ini:
+for i=128 to 144
+    cont=i
+    for j=0 to tam-1
+        lcdout $fe,cont,V[j]
+        cont=cont+1    
+    next j
+    '************
+    'lcdout $fe,128,"t"     
+    if i+tam-1>143 then
+       'lcdout $fe,128,V[tam-1]
+       pas=128
+       sobra=(i+tam-1)-143
+       for j=tam-sobra to tam-1 
+            lcdout $fe,pas,V[j]
+            pas=pas+1
+       next j       
+    endif
+    '************
+    pause 100
+    lcdout $fe,1 'limpiar pantalla
+next i
+'goto ini:

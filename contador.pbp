@@ -1,0 +1,24 @@
+'contador
+trisb=0
+ini:
+ portb=%0111111 '0
+ pause 1000
+ portb=%110 '1
+ pause 1000
+ portb=%1011011 '2
+ pause 1000
+ portb=%1001111 '3
+ pause 1000
+ portb=%1100110 '4
+ pause 1000
+ portb=%1101101 '5
+ pause 1000
+ portb=%1111101 '6
+ pause 1000
+ portb=%111 '7
+ pause 1000
+ portb=%1111111 '8
+ pause 1000
+ portb=%1100111 '9
+ pause 1000
+goto ini
